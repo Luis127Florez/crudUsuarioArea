@@ -1,0 +1,101 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <h1 style="color: aliceblue;">Gestion de Usuarios</h1>
+        <div class="d-flex">
+            <button (click)="clickAddUsuario()" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success">Nuevo Usuario</button>
+        </div>
+    </div>
+</nav>
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+          <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">Fecha de Nacimiento</th>
+            <th scope="col">Email</th>
+            <th scope="col">Numero de Documento</th>
+            <th scope="col">Area</th>
+            <th scope="col">Salario</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Accion</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of UsuarioData" >
+           <td>{{row.id}}</td>
+            <td>{{row.Nombre}}</td>
+            <td>{{row.Apellidos}}</td>
+            <td>{{row.Fecha_de_Nacimiento}}</td>
+            <td>{{row.Email}}</td>
+            <td>{{row.Numero_de_Documento}}</td>
+            <td>{{row.Area}}</td>
+            <td>{{row.Salario}}</td>
+            <td>{{row.Estado}}</td>
+            <td>
+                <button (click)="editUsuario(row)"type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info">Editar</button>
+                <button (click)="deleteUsuarioo(row)" class="btn btn-danger mx-3">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Detalle de usuario</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup] = "formValue">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Nombre</label>
+              <input type="text" formControlName="Nombre" class="form-control" id="exampleInputEmail1" >
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Apellidos</label>
+              <input type="text"  formControlName="Apellidos" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Fecha de Nacimiento</label>
+                <input type="date"  formControlName="Fecha_de_Nacimiento" class="form-control" id="exampleInputPassword1">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Email</label>
+                <input type="text"  formControlName="Email" class="form-control" id="exampleInputPassword1">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Numero de Documento</label>
+                <input type="number"  formControlName="Numero_de_Documento"class="form-control" id="exampleInputPassword1">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Area</label>
+                <input type="number"  formControlName="Area" class="form-control" id="exampleInputPassword1">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Salario</label>
+                <input type="number"  formControlName="Salario" class="form-control" id="exampleInputPassword1">
+              </div>
+
+              <label for="exampleInputPassword1" class="form-label">Estado</label>
+              <select class="form-select" aria-label="Default select example"  formControlName="Estado">
+                <option value="Ativo">Activo</option>
+                <option value="Inactivo">Inactivo</option>
+              </select>
+
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button"  id="Cancelar" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" *ngIf="showAdd" (click)="postUsuarioDetalle()" class="btn btn-primary">Guardar</button>
+        <button type="button" *ngIf="showUpdate"(click)="updateUsuarioDetalle()" class="btn btn-primary">Actualizar</button>
+      </div>
+    </div>
+  </div>
+</div>

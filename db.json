@@ -1,0 +1,30 @@
+{
+  "posts": [
+    {
+      "Nombre": "luis",
+      "Apellidos": "florez",
+      "Fecha_de_Nacimiento": "2022-05-11",
+      "Email": "flores@hotmail.co",
+      "Numero_de_Documento": 10023523,
+      "Area": 45454,
+      "Salario": 12680000,
+      "Estado": "Ativo",
+      "id": 4
+    },
+    {
+      "Nombre": "kate",
+      "Apellidos": "montes",
+      "Fecha_de_Nacimiento": "2022-05-01",
+      "Email": "kat@gmail.com",
+      "Numero_de_Documento": 4,
+      "Area": 23243,
+      "Salario": 5000000,
+      "Estado": "Ativo",
+      "id": 7
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
