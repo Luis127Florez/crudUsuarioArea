@@ -6,15 +6,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
-import { PanelDeControlComponent } from './component/compartido/panel-de-control/panel-de-control.component';
+import { MenuComponent } from './menu/menu.component';
 import { AreaComponent } from './area/area.component';
 
 @NgModule({
-  declarations: [
+  declarations: [ 
     AppComponent,
     UsuariosComponent,
-    PanelDeControlComponent,
-    AreaComponent
+    AreaComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
